@@ -1,8 +1,49 @@
-﻿@{
+﻿@using GB_05_03.Repositorys
+@{
     ViewData["Title"] = "Home Page";
+
+    var data=Repository.Data();
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@data</p>
+
+    <table border="1">
+       <thead>
+            <tr>
+            <td>Id</td>
+
+            <td>FirstName</td>
+
+            <td>LastName</td>
+
+            <td>Email</td>
+
+            <td>Company</td>
+
+            <td>Age</td>
+        </tr>
+       </thead>
+       <tbody>
+            @foreach(var i in data)
+            {
+                 <tr>
+                    <td>@i.Id;</td>
+
+                    <td> @i.FirstName;</td>
+
+                    <td>@i.LastName;</td>
+
+                    <td>@i.Email;</td>
+
+                    <td>@i.Company;</td>
+
+                    <td> @i.Age;</td>
+                </tr> 
+            } 
+       </tbody>
+    </table>
 </div>
