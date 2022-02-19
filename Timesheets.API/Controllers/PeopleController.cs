@@ -26,6 +26,26 @@ namespace Timesheets.API.Controllers
             return _people.GetPeople(); 
         }
 
+        //[HttpGet("{id}")]
+        //public  List<Person> GetPerson(int id)
+        //{
+        //    foreach (var i in _people.GetPeople())
+        //    {
+        //        if (i.Id == id)
+        //        {
+        //            return i.Id;
+        //        }
+        //    }
+        //    return _people=null ;
+        //}
 
+        //[HttpDelete]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+
+
+
+        //    return 
+        //}
     }
 }

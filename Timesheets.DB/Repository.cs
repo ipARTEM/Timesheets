@@ -6,9 +6,12 @@ namespace Timesheets.DB
 {
     public class Repository
     {
-        public List<Person> GetPeople()
+
+        public List<Person> Data { get; set; }
+
+        public Repository()
         {
-            var data = new List<Person>()
+            Data = new List<Person>()
             {
                 new Person { Id = 1, FirstName = "Veda", LastName = "Richmond", Email = "ligula@necluctus.edu", Company = "Quisque Ac Libero LLP", Age = 42 },
                 new Person { Id = 2, FirstName = "Demetria", LastName = "Andrews", Email = "feugiat.metus@penatibuset.org", Company = "Nulla Facilisi Foundation", Age = 31 },
@@ -61,8 +64,6 @@ namespace Timesheets.DB
                 new Person { Id = 49, FirstName = "Jenette", LastName = "Dejesus", Email = "adipiscing.Mauris.molestie@liberoduinec.ca", Company = "Lectus Justo Incorporated", Age = 56 },
                 new Person { Id = 50, FirstName = "Ramona", LastName = "Gilliam", Email = "massa.Vestibulum@lectuspede.ca", Company = "Imperdiet Dictum LLP", Age = 24 },
             };
-            return data;
         }
     }
-
 }

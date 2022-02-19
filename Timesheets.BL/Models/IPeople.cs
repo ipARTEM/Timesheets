@@ -8,6 +8,16 @@ namespace Timesheets.BL.Models
 {
     public interface IPeople
     {
-         List<Person> GetPeople();
+        List<Person> GetPeople();
+
+        Person SearchPerson(int id);
+
+        List<List<Person>> PagePeople(int skip, int take);
+
+        List<Person> AddPerson (Person person);
+
+        List<Person> UpdatePerson (string firstName);
+
+        List <Person> DeletePerson (int id);
     }
 }
