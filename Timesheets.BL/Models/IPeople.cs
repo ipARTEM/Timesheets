@@ -10,13 +10,13 @@ namespace Timesheets.BL.Models
     {
         List<Person> GetPeople();
 
-        Person SearchPerson(int id);
+        Person SearchPerson(string firstName);
 
-        List<List<Person>> PagePeople(int skip, int take);
+        List<Person> PagePeople(int skip, int take);
 
         List<Person> AddPerson (Person person);
 
-        List<Person> UpdatePerson (string firstName);
+        List<Person> UpdatePerson (Person person);
 
         List <Person> DeletePerson (int id);
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Timesheets.DB
 {
-    public class Repository
+    public class Repository:List<Person>
     {
 
         public List<Person> Data { get; set; }

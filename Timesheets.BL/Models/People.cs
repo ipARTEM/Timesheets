@@ -9,9 +9,12 @@ namespace Timesheets.BL.Models
     {
         private Repository _repository;
 
+        public List<Person> pagePeople { get; set; }
+
         public People()
         {
             _repository = new Repository();
+            pagePeople = new List<Person>();
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace Timesheets.BL.Models
         }
 
         /// <summary>
-        /// Отдать всех людей
+        /// Получить всех людей
         /// </summary>
         /// <returns></returns>
         public List<Person> GetPeople()
@@ -55,13 +58,13 @@ namespace Timesheets.BL.Models
         /// <summary>
         /// Получение списка людей с пагинацией
         /// </summary>
-        /// <param name="skip"></param>
-        /// <param name="take"></param>
+        /// <param name="skip">Пропускать</param>
+        /// <param name="take">Брать</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public List<List<Person>> PagePeople(int skip, int take)
+        public List<Person> PagePeople(int skip, int take)
         {
-            throw new NotImplementedException();
+            return pagePeople = _repository.GetRange(2, 5);
         }
 
         /// <summary>
@@ -70,9 +73,17 @@ namespace Timesheets.BL.Models
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Person SearchPerson(string firstName)
+        public Person SearchPerson( string firstName)
         {
-            throw new NotImplementedException();
+            foreach (var i in _repository.Data)
+            {
+                if (i.FirstName==firstName)
+                {
+                    i.FirstName = firstName;
+                    return i;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -81,9 +92,21 @@ namespace Timesheets.BL.Models
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public List<Person> UpdatePerson(int id)
+        public List<Person> UpdatePerson(Person p)
         {
-            throw new NotImplementedException();
+            foreach (var i in _repository.Data)
+            {
+                if (i.Id== p.Id)
+                {
+                    i.FirstName=p.FirstName;
+                    i.LastName=p.LastName;
+                    i.Email=p.Email;
+                    i.Company=p.Company;
+                    i.Age=p.Age;
+                    return _repository.Data;
+                }
+            }
+            return _repository.Data;
         }
     }
 }
