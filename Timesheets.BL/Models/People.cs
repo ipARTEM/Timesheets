@@ -14,8 +14,29 @@ namespace Timesheets.BL.Models
         public People()
         {
             _repository = new Repository();
-            pagePeople = new List<Person>();
+            
         }
+
+        /// <summary>
+        /// Получить человека по идентификатору
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<Person> GetPerson(int id)
+        {
+            foreach (var i in _repository.Data)
+            {
+                if (i.Id==id)
+                {
+                    pagePeople = null;
+                    pagePeople.Add(i);
+
+                    return pagePeople;
+                }
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// Добавить человека
@@ -73,14 +94,18 @@ namespace Timesheets.BL.Models
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Person SearchPerson( string firstName)
+        public List<Person> SearchPerson( string firstName)
         {
             foreach (var i in _repository.Data)
             {
                 if (i.FirstName==firstName)
                 {
                     i.FirstName = firstName;
-                    return i;
+
+                    pagePeople = null;
+                    pagePeople.Add(i);
+
+                    return pagePeople;
                 }
             }
             return null;

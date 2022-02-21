@@ -10,7 +10,9 @@ namespace Timesheets.BL.Models
     {
         List<Person> GetPeople();
 
-        Person SearchPerson(string firstName);
+        List<Person> GetPerson(int id);
+
+        List<Person> SearchPerson(string firstName);
 
         List<Person> PagePeople(int skip, int take);
 
