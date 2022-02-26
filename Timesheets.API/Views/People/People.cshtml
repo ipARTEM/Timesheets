@@ -1,0 +1,41 @@
+﻿@model List<Person>
+
+@{
+    ViewData["Title"] = "People";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>People</p>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    <a >Id</a>
+                </th>
+                <th>
+                   <a >FirstName</a>
+                </th>
+                <th>
+                    <a >LastName</a>
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
