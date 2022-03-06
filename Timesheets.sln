@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAPI", "TestAPI\TestAPI.csproj", "{AC7F8802-07A9-4394-BA64-18482F7638FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timesheets.API.Swagger", "Timesheets.API.Swagger\Timesheets.API.Swagger.csproj", "{B960AD6F-69F3-4EF0-834A-6728EA493074}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timesheets.API.Swagger", "Timesheets.API.Swagger\Timesheets.API.Swagger.csproj", "{B960AD6F-69F3-4EF0-834A-6728EA493074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timesheets.API.EF.PostgreSQL", "Timesheets.API.EF.PostgreSQL\Timesheets.API.EF.PostgreSQL.csproj", "{00736D6A-5EA5-4A1D-ABC7-28108DC960C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{B960AD6F-69F3-4EF0-834A-6728EA493074}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B960AD6F-69F3-4EF0-834A-6728EA493074}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B960AD6F-69F3-4EF0-834A-6728EA493074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00736D6A-5EA5-4A1D-ABC7-28108DC960C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00736D6A-5EA5-4A1D-ABC7-28108DC960C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00736D6A-5EA5-4A1D-ABC7-28108DC960C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00736D6A-5EA5-4A1D-ABC7-28108DC960C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
