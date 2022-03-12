@@ -20,7 +20,7 @@ namespace Timesheets.API.EF.PostgreSQL
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=usersdb;Username=postgres;Password=1212");
+        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=usersdbw1;Username=postgres;Password=1212");
         //}
     }
 }
