@@ -9,7 +9,7 @@ namespace Timesheets.API.EF.PostgreSQL
         public DbSet<User> Users { get; set; } = null!;
         public ApplicationContext(DbContextOptions options):base(options)
         {
-             //Database.EnsureCreated();  // первое создание базы данных
+             Database.EnsureCreated();  // первое создание базы данных
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

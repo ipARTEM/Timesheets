@@ -2,7 +2,7 @@
 
 namespace Timesheets.API.EF.PostgreSQL.Models
 {
-    [Table("User", Schema="Test")]
+   // [Table("User", Schema="Test")]
     public class User
     {
         
@@ -14,7 +14,7 @@ namespace Timesheets.API.EF.PostgreSQL.Models
         public string Email { get; set; }
         public string Company { get; set; }
         public int Age { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
         public object? Comment { get; internal set; }
     }
 }
