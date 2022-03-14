@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Timesheets.DB;
 
@@ -9,12 +10,14 @@ namespace Timesheets.BL.Models
     {
         private Repository _repository;
 
-        public List<Person> pagePeople { get; set; }
+        public List<Person> _pagePeople;
 
         public People()
         {
             _repository = new Repository();
-            
+            _pagePeople=new List<Person>();
+
+
         }
 
         /// <summary>
@@ -28,10 +31,10 @@ namespace Timesheets.BL.Models
             {
                 if (i.Id==id)
                 {
-                    pagePeople = null;
-                    pagePeople.Add(i);
+                    _pagePeople.Clear();
+                    _pagePeople.Add(i);
 
-                    return pagePeople;
+                    return _pagePeople;
                 }
             }
             return null;
@@ -43,11 +46,9 @@ namespace Timesheets.BL.Models
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        public List<Person> AddPerson(Person person)
+        public void AddPerson(Person person)
         {
             _repository.Data.Add(person);
-
-            return _repository.Data;
         }
 
         /// <summary>
@@ -55,16 +56,16 @@ namespace Timesheets.BL.Models
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<Person> DeletePerson(int id)
+        public void DeletePerson(int id)
         {
-            foreach (var i in _repository.Data)
+            foreach (var i in _repository.Data.ToList())
             {
-                if (i.Id==id)
+                if (id==i.Id)
                 {
-                    _repository.Data.Remove(i);
+                    _repository.Remove(i);
                 }
             }
-            return _repository.Data;
+
         }
 
         /// <summary>
@@ -85,7 +86,9 @@ namespace Timesheets.BL.Models
         /// <exception cref="NotImplementedException"></exception>
         public List<Person> PagePeople(int skip, int take)
         {
-            return pagePeople = _repository.GetRange(2, 5);
+            _pagePeople = _repository.Data;
+
+            return _pagePeople.GetRange(skip, take);
         }
 
         /// <summary>
@@ -102,10 +105,10 @@ namespace Timesheets.BL.Models
                 {
                     i.FirstName = firstName;
 
-                    pagePeople = null;
-                    pagePeople.Add(i);
+                    _pagePeople.Clear();
+                    _pagePeople.Add(i);
 
-                    return pagePeople;
+                    return _pagePeople;
                 }
             }
             return null;
@@ -117,7 +120,7 @@ namespace Timesheets.BL.Models
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public List<Person> UpdatePerson(Person p)
+        public void UpdatePerson(Person p)
         {
             foreach (var i in _repository.Data)
             {
@@ -128,10 +131,10 @@ namespace Timesheets.BL.Models
                     i.Email=p.Email;
                     i.Company=p.Company;
                     i.Age=p.Age;
-                    return _repository.Data;
+                    
                 }
             }
-            return _repository.Data;
+            
         }
     }
 }
