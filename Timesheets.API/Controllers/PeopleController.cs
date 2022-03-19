@@ -9,6 +9,11 @@ namespace Timesheets.API.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IPeople _people;
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public PeopleController(ILogger<HomeController> logger, IPeople people)
         {
             _logger = logger;
@@ -20,22 +25,22 @@ namespace Timesheets.API.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet]      
         public List<Person> Get()
         {
             return _people.GetPeople(); 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]   //  /People/GetPerson2?1
         public List<Person> GetPerson2(int id)
         {
             return _people.GetPerson(id);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPerson(int id)
-        {
-            return View( _people.GetPerson(id));
-        }
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetPerson(int id)
+        //{
+        //    return View( _people.GetPerson(id));
+        //}
     }
 }

@@ -4,6 +4,8 @@ using Timesheets.API.Models;
 
 namespace Timesheets.API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
