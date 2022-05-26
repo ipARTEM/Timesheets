@@ -16,10 +16,10 @@ namespace Timesheets.BL.Models
 
         List<Person> PagePeople(int skip, int take);
 
-        List<Person> AddPerson (Person person);
+        void AddPerson (Person person);
 
-        List<Person> UpdatePerson (Person person);
+        void UpdatePerson (Person person);
 
-        List <Person> DeletePerson (int id);
+        void DeletePerson (int id);
     }
 }
